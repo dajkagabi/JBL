@@ -211,7 +211,7 @@ img {
   transform: translateX(5px);
 }
 
-/* HEADER & NAVIGÁCIÓ */
+/* header, navigáció*/
 .header {
   position: fixed;
   top: 0;
@@ -238,7 +238,7 @@ img {
   position: relative;
 }
 
-/* BRAND/LOGÓ */
+/* Logó */
 .brand {
   display: flex;
   flex-direction: column;
@@ -285,12 +285,12 @@ img {
   z-index: 1001;
 }
 
-/* REGISZTRÁCIÓ GOMB */
+/* Regisztráció */
 .menu-block {
   display: none;
 }
 
-/* MOBIL MENÜ */
+/* Mobil menu */
 .menu {
   position: fixed;
   top: -100%;
@@ -356,7 +356,7 @@ img {
   width: 60%;
 }
 
-/* BURGER IKON */
+/* Burger ikon */
 .burger {
   display: flex;
   flex-direction: column;
@@ -396,7 +396,7 @@ img {
   background-color: var(--color-jbl-primary);
 }
 
-/* OVERLAY */
+/* Overlay */
 .overlay {
   position: fixed;
   inset: 0;
@@ -412,7 +412,7 @@ img {
   opacity: 1;
 }
 
-/* HERO */
+/* Hero rész */
 .banner-column {
   display: flex;
   flex-direction: column;
@@ -451,7 +451,7 @@ img {
   50% { transform: translateY(-10px); }
 }
 
-/* KÖZÖSSÉGI IKONOK */
+/* Social */
 .banner-link {
   display: flex;
   flex-direction: row;
@@ -480,7 +480,7 @@ img {
   box-shadow: 0 5px 15px rgba(254, 64, 4, 0.3);
 }
 
-/* SVG IKONOK */
+/* Svg  */
 .social-icon-svg {
   width: 20px;
   height: 20px;
@@ -856,7 +856,6 @@ img {
     left: -10px;
 }
 
-/* Social media section - CSAK A "KÖVESS MINKET" CÍM ALATTI SZÍNES VONAL ELTÁVOLÍTVA */
 .footer-social-section {
     margin: 3rem 0;
     padding: 2rem 0;
@@ -872,7 +871,6 @@ img {
     padding-bottom: 0;
 }
 
-/* Ez a szabály távolítja el a színes vonalat a "Kövess minket" cím alól */
 .footer-social-section .footer-title::after {
     display: none;
 }

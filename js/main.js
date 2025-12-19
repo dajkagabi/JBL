@@ -1,66 +1,41 @@
-// Inicializálás
-const navbarMenu = document.getElementById("menu");
-const burgerMenu = document.getElementById("burger");
-const headerMenu = document.getElementById("header");
-const bgOverlay = document.querySelector(".overlay");
+const burger = document.getElementById("burger");
+const menu = document.getElementById("menu");
+const overlay = document.getElementById("overlay");
+const header = document.getElementById("header");
 
-//Navigációs sáv elrejtése menüfunkció inicializálása
-const toggleNavbarMenu = () => {
-   navbarMenu.classList.toggle("is-active");
-   burgerMenu.classList.toggle("is-active");
-   bgOverlay.classList.toggle("is-active");
-   
-   // Blokkolja a scrollozást, ha menü nyitva van
-   if (navbarMenu.classList.contains("is-active")) {
-      document.body.style.overflow = "hidden";
-   } else {
-      document.body.style.overflow = "auto";
-   }
+let menuOpen = false;
+
+const openMenu = () => {
+  menuOpen = true;
+  menu.classList.add("is-active");
+  burger.classList.add("is-active");
+  overlay.classList.add("is-active");
+  document.body.style.overflow = "hidden";
 };
 
-// Zárva ha:
-const closeNavbarMenu = () => {
-   navbarMenu.classList.remove("is-active");
-   burgerMenu.classList.remove("is-active");
-   bgOverlay.classList.remove("is-active");
-   document.body.style.overflow = "auto";
+const closeMenu = () => {
+  menuOpen = false;
+  menu.classList.remove("is-active");
+  burger.classList.remove("is-active");
+  overlay.classList.remove("is-active");
+  document.body.style.overflow = "";
 };
 
-// Elrejtése kattintáskor
-burgerMenu.addEventListener("click", () => {
-   toggleNavbarMenu();
+burger.addEventListener("click", () => {
+  menuOpen ? closeMenu() : openMenu();
 });
 
-// Átfedés
-bgOverlay.addEventListener("click", () => {
-   closeNavbarMenu();
+overlay.addEventListener("click", closeMenu);
+
+document.querySelectorAll(".menu-link").forEach(link => {
+  link.addEventListener("click", closeMenu);
 });
 
-// Elrejtés, a hivatkozásokra kattintáskor
-document.querySelectorAll(".menu-link").forEach((link) => {
-   link.addEventListener("click", () => {
-      closeNavbarMenu();
-   });
-});
-
-// Regisztráció gomb eseménykezelő
-document.querySelector(".menu-block a")?.addEventListener("click", (e) => {
-   if (window.innerWidth < 768) {
-      e.preventDefault();
-      closeNavbarMenu();
-      // Késleltetve navigáljon a regisztráció oldalra
-      setTimeout(() => {
-         window.location.href = e.target.closest("a").href;
-      }, 300);
-   }
-});
-
-// Fejléc hátterének módosítása görgetés közben
+/*  SCROLL SOHA NEM NYITHAT MENÜT */
 window.addEventListener("scroll", () => {
-   if (window.scrollY >= 75) {
-      headerMenu.classList.add("on-scroll");
-   } else {
-      headerMenu.classList.remove("on-scroll");
-   }
-});
+  if (menuOpen) return;
 
+  window.scrollY > 60
+    ? header.classList.add("on-scroll")
+    : header.classList.remove("on-scroll");
+});

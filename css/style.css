@@ -505,9 +505,131 @@ img {
   opacity: 0.5;
 }
 
-/* TERMÉK SZEKCIÓ TÖRÖLVE */
+/* HERO ALATTI VONAL */
+.hero-divider {
+  padding: 2rem 0;
+  background-color: var(--color-dark-400);
+  position: relative;
+  z-index: 1;
+}
 
-/* FOOTER - EGYSZERŰSÍTETT */
+.divider-line {
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--color-jbl-primary), 
+    var(--color-jbl-secondary), 
+    var(--color-jbl-primary), 
+    transparent
+  );
+  border-radius: 2px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.divider-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.6), 
+    transparent
+  );
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* SPONSOR SZEKCIÓ - STATIKUS */
+.sponsor-section {
+  padding: 4rem 0;
+  background-color: var(--color-dark-400);
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-subtitle {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--color-gray-400);
+  font-size: 1.125rem;
+}
+
+/* Sponsor grid  */
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  justify-items: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.sponsor-item {
+  width: 150px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(254, 64, 4, 0.1), 
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.sponsor-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-jbl-primary);
+  box-shadow: var(--shadow-jbl);
+  background: rgba(254, 64, 4, 0.05);
+}
+
+.sponsor-item:hover::before {
+  left: 100%;
+}
+
+.sponsor-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(1) brightness(1.5);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.sponsor-item:hover .sponsor-img {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
+}
+
+/* FOOTER  */
 .footer {
   background-color: var(--color-dark-400);
   padding: 4rem 0 2rem;
@@ -611,7 +733,7 @@ img {
   gap: 3rem;
 }
 
-/* Footer címsorok */
+/* Footer-title */
 .footer-title {
   font-size: 1.25rem;
   font-weight: 600;
@@ -813,9 +935,19 @@ img {
   .contact-item {
     justify-content: flex-start;
   }
+  
+  /* Sponsor grid desktop */
+  .sponsor-grid {
+    gap: 4rem;
+  }
+  
+  .sponsor-item {
+    width: 160px;
+    height: 110px;
+  }
 }
 
-/* DESKTOP NÉZET - 1024px */
+/* DESKTOP: 1024px */
 @media screen and (min-width: 1024px) {
   .banner-column {
     display: grid;
@@ -852,6 +984,12 @@ img {
     grid-template-columns: 1fr 1fr;
     gap: 6rem;
   }
+  
+  /* Sponsor nagy képernyőn */
+  .sponsor-grid {
+    gap: 5rem;
+    max-width: 900px;
+  }
 }
 
 /* MOBIL OPTIMALIZÁLÁS */
@@ -879,9 +1017,24 @@ img {
   .footer {
     padding: 3rem 0 1.5rem;
   }
+  
+  /* Sponsor mobil */
+  .sponsor-section {
+    padding: 3rem 0;
+  }
+  
+  .sponsor-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .sponsor-item {
+    width: 120px;
+    height: 80px;
+    padding: 1rem;
+  }
 }
 
-/* EXTRA KIS KÉPERNYŐK */
 @media screen and (max-width: 480px) {
   .container {
     padding-inline: 1rem;
@@ -916,5 +1069,21 @@ img {
   
   .footer-legal {
     gap: 1rem;
+  }
+  
+  /* Sponsor extra kis képernyőn */
+  .sponsor-section {
+    padding: 2rem 0;
+  }
+  
+  .sponsor-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .sponsor-item {
+    width: 100px;
+    height: 70px;
+    padding: 0.75rem;
   }
 }

@@ -1,9 +1,11 @@
+//Inicializálás
 const burger = document.getElementById("burger");
 const menu = document.getElementById("menu");
 const overlay = document.getElementById("overlay");
 const header = document.getElementById("header");
 
 let menuOpen = false;
+
 
 const openMenu = () => {
   menuOpen = true;
@@ -31,7 +33,7 @@ document.querySelectorAll(".menu-link").forEach(link => {
   link.addEventListener("click", closeMenu);
 });
 
-/*  SCROLL SOHA NEM NYITHAT MENÜT */
+/*  SCROLL SOHA NEM NYITHAT MENÜT, EZ BUG VOLT */
 window.addEventListener("scroll", () => {
   if (menuOpen) return;
 

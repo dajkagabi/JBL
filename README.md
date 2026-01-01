@@ -1,5 +1,5 @@
 # JBL
-Egy egyszerű, statikus weboldal a JBL hangszórók és audio termékek bemutatására. A projekt HTML, CSS és JavaScript alapokon nyugszik, és valószínűleg egy landing page vagy termékbemutató oldal célja.
+Egy egyszerű, statikus weboldal a JBL hangszórók és audio termékek bemutatására. A projekt HTML, CSS és JavaScript alapokon nyugszik.
 
 ## Telepítés, előfeltételek:
 
@@ -8,6 +8,6 @@ Egy egyszerű, statikus weboldal a JBL hangszórók és audio termékek bemutat�
 
 ## Telepítési lépések:
 
-- Klónozd a repository-t:textgit clone https://github.com/dajkagabi/JBL.git
+- Klónozd a repository-t: git clone https://github.com/dajkagabi/JBL.git
 - Navigálj a projekt mappájába: cd JBL
 - A live Server bővítményt indíd el.

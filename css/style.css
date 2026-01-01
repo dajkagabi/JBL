@@ -1489,20 +1489,7 @@ img {
 
 
 
-@media screen and (max-width: 320px) {
-  .about-main-grid {
-    /* Mobilon egymás alatt, kisebb gap */
-  }
-  .about-main-image {
-    /* Kép középre igazítva mobilon */
-  }
-  .about-stats-grid {
-    /* Statisztikák 2 oszlopban mobilon */
-  }
-  .about-values-grid {
-   
-  }
-}
+
 
 /* RÓLUNK SZEKCIÓ */
 .about-main-grid {
